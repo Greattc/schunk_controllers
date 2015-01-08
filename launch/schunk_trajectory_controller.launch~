@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+
+	<!-- Load controller config -->
+	<rosparam command="load" file="$(find schunk_controllers)/config/trajectory controller/lwa/lwa_controller.yaml" />
+
+	<rosparam command="load" file="$(find schunk_controllers)/config/trajectory controller/sdh/sdh_controller.yaml"  />
+
+	<!-- Spawn controller -->
+	<node name="arm_controller_spawner" pkg="controller_manager" type="spawner" args="joint_state_controller  arm_controller" />
+
+    <node name="sdh_controller_spawner" pkg="controller_manager" type="spawner" args="sdh_controller" />
+	
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
+	
+</launch>

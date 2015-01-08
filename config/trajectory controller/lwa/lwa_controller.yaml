@@ -1,0 +1,64 @@
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 100  
+  
+arm_controller:
+  type: "effort_controllers/JointTrajectoryController"
+  joints:
+    - arm_1_joint
+    - arm_2_joint
+    - arm_3_joint
+    - arm_4_joint
+    - arm_5_joint
+    - arm_6_joint
+    - arm_7_joint  
+  gains:
+    arm_1_joint:
+      p: 5000.0
+      d: 0.0
+    arm_2_joint:
+      p: 8000.0
+      d: 0.0
+    arm_3_joint: 
+      p: 4000.0
+      d: 0.0
+    arm_4_joint:
+      p: 6020.0
+      d: 0.0
+    arm_5_joint:
+      p: 4030.0
+      d: 0.0
+    arm_6_joint:
+      p: 4050.0
+      d: 0.0
+    arm_7_joint:
+      p: 3080.0
+      d: 0.0   
+
+    constraints:
+      goal_time: 1.0
+      arm_1_joint:
+        trajectory: 0.05
+        goal: 0.05
+      arm_2_joint:
+        trajectory: 0.05
+        goal: 0.05
+      arm_3_joint:
+        trajectory: 0.05
+        goal: 0.05
+      arm_4_joint:
+        trajectory: 0.05
+        goal: 0.05
+      arm_5_joint:
+        trajectory: 0.05
+        goal: 0.05
+      arm_6_joint:
+        trajectory: 0.05
+        goal: 0.05
+      arm_7_joint:
+        trajectory: 0.05
+        goal: 0.05
+
+    state_publish_rate:  100 # Defaults to 50
+    action_monitor_rate: 20 # Defaults to 20
+    hold_trajectory_duration: 0 # Defaults to 0.5
